@@ -39,7 +39,7 @@ function Modal({ isOpen, onClose }) {
           </div>
 
           <div className="btn">
-            <img src={close} height="15px" onClick={onClose}/>
+            <img src={close} alt="Close" height="15px" onClick={onClose}/>
           </div>
         </div>
 
