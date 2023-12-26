@@ -3,28 +3,29 @@ import Current from "./ui/Current";
 import { LocationContext } from "./LocationContext";
 
 function GetData() {
-  // console.log(location.city)
+  // Get useContext location data
   const { location } = useContext(LocationContext);
-
-  let city = location.city;
-  let country = location.country;
-  console.log(city, country);
   const apiKey = "3fa7da1fadcb0f96d64a09bab5c5c93f";
   const [data, setData] = useState([]);
-  const fetchData = async () => {
-    await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiKey}&units=imperial`
-    )
-      .then((res) => res.json())
-      .then((jsonData) => {
-        setData(jsonData);
-      })
-      .catch((err) => console.log(err.message));
-  };
-  console.log(data);
+  // Fetch weather data passing the useContext variable into the api
+  // Keep function that gets the data inside the useEffect function to prevent errors
   useEffect(() => {
+    const fetchData = async () => {
+  
+      await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${location.city},${location.country}&appid=${apiKey}&units=imperial`
+      )
+        .then((res) => res.json())
+        .then((jsonData) => {
+          setData(jsonData);
+          // console.log(jsonData)
+        })
+        .catch((err) => console.log(err.message));
+    };
     fetchData();
-  }, []);
+    // Add data, city, and country useContext variables as dependencies to remove error
+}, [data,location.city,location.country]);
+
   return (
     // Return an empty div if the data is undefined
     // Needed to not get an error when accessing the data
