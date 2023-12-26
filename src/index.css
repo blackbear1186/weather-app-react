@@ -6,7 +6,7 @@
 
 .container {
   margin: 1em auto 1em auto;
-  height: 400px;
+  height: auto;
   width: 300px;
   border: 1px solid grey;
   border-radius: 1em;
@@ -64,19 +64,17 @@
   margin: 1em .5em 1em .5em;
   color: white;
 }
-.close-button {
-  height: 1.5em;
-  width: 1.5em;
-  border-radius: .5em;
-  background-color: red;
-  border-style: none;
+.btn {
   cursor: pointer;
-  margin: 1em 1em 0 4em;
-  /* margin: 1em .5em 1em .5em; */
-  color: black;
+  /* border: 1px solid black; */
+  align-self: center;
+  margin-right: .5em;
+  
 }
 input[type='text'] {
   height: 2em;
+  /* width: 90%; */
+  /* margin: auto; */
   /* margin: .5em; */
 }
 .input {
@@ -84,6 +82,42 @@ input[type='text'] {
   display: flex;
   flex-direction: column;
   text-align: start;
-  margin: .5em;
+  margin: auto;
+  width: 80%;
+  height: 70px;
+}
+.icons-container {
+  width: 50%;
+  /* border: 1px solid black; */
+  margin: auto;
+}
+.icons {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: .3em;
+}
+.icons img {
+  /* margin-top: .5em; */
+  margin-right: 1em;
+  
+}
+.p-tags {
+  text-align: left;
+}
+.modal-header-button {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  margin-top: .5em;
+  /* align-items: center; */
+}
+.header {
+  /* border: 1px solid black; */
+  align-self: center;
+  text-align: left;
+  /* width: 80%; */
+  margin-left: 1.8em;
+
 }
 

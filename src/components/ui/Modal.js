@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 // import GetData from "../GetData";
-import { LocationContext} from "../LocationContext";
+import { LocationContext } from "../LocationContext";
+import close from "../icons/close.png";
 
 function Modal({ isOpen, onClose }) {
   // use the useState variables to update the location object
@@ -10,7 +11,6 @@ function Modal({ isOpen, onClose }) {
 
   // Get location data from useContext
   const { location } = useContext(LocationContext);
- 
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -18,13 +18,13 @@ function Modal({ isOpen, onClose }) {
     location.city = city;
     location.country = country;
     // Clear text in the input fields
-    setCity('')
-    setCountry('')
+    setCity("");
+    setCountry("");
     // Close the modal
-    onClose()
+    onClose();
   }
 
-  // This keeps the modal closed until the Change Location button 
+  // This keeps the modal closed until the Change Location button
   // is pressed in the ChangeLocation Component.
   if (isOpen === false) {
     return null;
@@ -34,16 +34,20 @@ function Modal({ isOpen, onClose }) {
     <div className="modal-fixed">
       <form className="modal">
         <div className="modal-header-button">
-          <h3>Edit Location</h3>
+          <div className="header">
+            <h3>Edit Location</h3>
+          </div>
 
-          <button className="close-button" onClick={onClose}>
-            X
-          </button>
+          <div className="btn">
+            <img src={close} height="15px" onClick={onClose}/>
+          </div>
         </div>
 
         <div className="input">
-        {/* Include htmlFor to focus input when click on label */}
-          <label htmlFor="city"><strong>City:</strong></label>
+          {/* Include htmlFor to focus input when click on label */}
+          <label htmlFor="city">
+            <strong>City:</strong>
+          </label>
           <input
             type="text"
             id="city"
@@ -51,10 +55,11 @@ function Modal({ isOpen, onClose }) {
             onChange={(e) => setCity(e.target.value)}
             placeholder="City"
           />
-         
         </div>
         <div className="input">
-        <label htmlFor="country"><strong>Country:</strong></label>
+          <label htmlFor="country">
+            <strong>Country:</strong>
+          </label>
           <input
             type="text"
             id="country"
