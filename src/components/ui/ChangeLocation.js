@@ -12,7 +12,9 @@ function ChangeLocation() {
   }
   return (
     <div>
+      {/* When Change location button is clicked open the modal */}
       <button className="button" onClick={handleOpenModal}>Change Location</button>
+      {/* Pass isOpen boolean and onClose function to Modal component */}
       <Modal isOpen={isOpen} onClose={handleCloseModal}/>
     </div>
   );

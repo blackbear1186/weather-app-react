@@ -1,10 +1,12 @@
-import { createContext, useContext, useState } from "react";
-
+import { createContext, useContext, useState,useEffect } from "react";
+// import axios from "axios";
+// Create object with empty data for weather app
 const location = {
-  city: "Waco",
-  country: "US",
+  city: "",
+  country: "",
 };
-export const LocationContext = createContext(location);
+// create Context object
+export const LocationContext = createContext(location)
 
 export const LocationProvider = ({ children }) => {
   return (
@@ -12,4 +14,3 @@ export const LocationProvider = ({ children }) => {
   );
 };
 
-// export const useLocation = () => useContext(LocationContext);

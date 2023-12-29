@@ -44,7 +44,7 @@ function Modal({ isOpen, onClose }) {
         </div>
 
         <div className="input">
-          {/* Include htmlFor to focus input when click on label */}
+          {/* Include htmlFor to focus input when click on label , match with id*/}
           <label htmlFor="city">
             <strong>City:</strong>
           </label>

@@ -14,7 +14,10 @@ function Current(props) {
   let sunset = new Date(props.data.sys.sunset * 1000).toLocaleTimeString(
     "en-US"
   );
-  let weatherIcon = props.data.weather[0].icon;
+  // Get weather icon returned as a string
+  const weatherIcon = props.data.weather[0].icon;
+  // Get weather icon from Openweather api
+  const currentConditionAPI = `https://openweathermap.org/img/wn/${weatherIcon}@2x.png`
   // Capitalize the first letters of each word 
   // Use for weather description
   function capitalize(words) {
@@ -23,7 +26,6 @@ function Current(props) {
       .map((str) => str[0].toUpperCase() + str.slice(1))
       .join(" ");
   }
-  // console.log(props.data);
   return (
     <div className="container">
       <div className="details">
@@ -31,10 +33,11 @@ function Current(props) {
         <h1>
           {props.data.main.temp} {"\t\xB0"}
         </h1>
+        {/* Display current weather condition icon */}
         <img
           height={50}
           alt="Current weather conditions"
-          src={`https://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
+          src={currentConditionAPI}
         />
         {/* Capitalize first letters of each word */}
         <p>{capitalize(props.data.weather[0].description)}</p>
